@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 import torch.nn.functional as f
-from torchsummary import summary
+# from torchsummary import summary
 class BPM_Predictor(nn.Module):
     def __init__(self, in_features, out_features):
         super().__init__()

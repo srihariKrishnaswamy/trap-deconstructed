@@ -109,15 +109,17 @@ function RecordingProcessing({recProcessing, setShowResults, fetched}) {
   }
 
   useEffect(() => {
-    console.log('THIS COMPONENT IS LOADED')
+    // console.log('THIS COMPONENT IS LOADED')
     if (!fetched) {
+      console.log('SUPPOSED TO FETCH (INSIDE REACT APP)')
       fetch("/get_results").then(
         res => res.json()
       ).then(
         newData => {
+          console.log('FETCHED INSIDE REACT APP')
           setData(newData)
           parseResults(newData.stdout)
-          console.log(newData.stdout)
+          console.log(`the data: ${newData.stdout}`)
           setShowResults(true);
           recProcessing(false);
         }
