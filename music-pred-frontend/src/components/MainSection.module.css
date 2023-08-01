@@ -1,0 +1,181 @@
+.waitingfordata {
+  font-size: 2rem;
+  font-weight: lighter !important;
+  color: white !important;
+}
+
+.suggestions {
+  text-align: left;
+  padding-left: 4vh;
+  padding-right: 4vh;
+}
+
+
+.blackdisplayrow {
+  background-color: black !important;
+  border: white solid 2px;
+  border-radius: 10px;
+}
+
+.internalblackdisp {
+  padding-top: 0.5vh;
+  padding-bottom: 2vh;
+}
+
+.displaycol {
+  padding-top: 0.1vh;
+  padding-bottom: 0.1vh;
+  padding-left: 0.1vh;
+  padding-right: 0.1vh;
+}
+
+.displaycontainer {
+  border-radius: 10px;
+  text-align: center !important;
+  /* border: wheat 1px solid !important; */
+}
+
+.detailstext {
+  font-size: 1.2rem;
+  font-weight: lighter !important;
+  color: white !important;
+}
+
+.recbuttoncontainer {
+  align-items: center;
+  position: relative;
+}
+
+.recbuttoncontainer > * {
+  animation-name: flash;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.recimage {
+  width: 2.5vh;
+  height: 2.5vh;
+}
+
+.content {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  align-self: flex-start; /* Add this line */
+  justify-content: flex-start; /* Add this line */
+}
+
+.rectext {
+  font-weight: lighter !important;
+  font-size:  1.2rem;
+  margin-left: 2vh;
+}
+
+.micboundary {
+  overflow: hidden;
+}
+
+.timeremaining {
+  display: inline-block; /* Add this line */
+  font-weight: lighter !important;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.icon {
+  flex: 1.5;
+  max-width: 100%;
+  font-size: 15vh;
+}
+
+.wrapperbutton {
+  color: red;
+  outline: white;
+  border-radius: 100%;
+}
+.redflashybutton {
+  outline: black;
+  color: red;
+  border-radius: 50%;
+}
+
+.recordingsection {
+  display: inline-flex;
+  align-items: center;
+}
+
+.recpanel {
+  display: inline-flex;
+  padding: 5vh 0;
+  background-color: transparent;
+  width: 100%;
+  height: 1vh;
+  border-radius: 2%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, .3);
+  display: flex;
+}
+
+.recpanel > div {
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circularbutton {
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.circularbutton:hover {
+  background-color: #f2f2f2;
+}
+
+.bigtext {
+  color: white;
+  font-weight: lighter !important;
+  font-size: 4rem !important;
+}
+
+.mobileflex {
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+    width: 100% !important;
+    text-align: center;
+    padding-top: 10vh !important;
+}

@@ -1,0 +1,6 @@
+pydub
+wave
+torch
+torchaudio
+openai
+flask

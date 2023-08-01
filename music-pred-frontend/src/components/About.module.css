@@ -1,0 +1,33 @@
+.section {
+    text-align: center;
+    padding-bottom: 10vh;
+}
+
+.aboutheader {
+    padding-top: 10vh;
+    color: white !important;
+    font-size: 4rem;
+    font-weight: lighter !important;
+}
+
+.text {
+    padding-left: 10vh;
+    padding-right: 10vh;
+    color: white !important;
+    font-size: 1.5rem;
+    font-weight: lighter !important;
+    text-align: left !important;
+}
+
+.subheader {
+    text-align: left !important;
+    padding-left: 10vh;
+    padding-right: 10vh;
+    color: white !important;
+    font-size: 2.5rem;
+    font-weight: lighter !important;
+}
+
+.leftalign {
+    text-align: left !important;
+}
