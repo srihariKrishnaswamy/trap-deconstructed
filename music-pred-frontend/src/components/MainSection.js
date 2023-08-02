@@ -14,42 +14,68 @@ function MainSection() {
   const [recordingProcessing, setRecordingProcessing] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  const toggleShowRecording = (boolVal) => {
-    setShowRecording(boolVal);
-  };
-
-  const toggleRecProcessing = (boolVal) => {
-    setRecordingProcessing(boolVal);
-  }
+  const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const [timer, setTimer] = useState(8); // Timer in seconds
 
   useEffect(() => {
     if (showRecording || recordingProcessing) {
       setIsDisabled(true);
+      setTimer(8); // Reset the timer when disabling the button
+      setIsTimerRunning(false);
     } else {
-      setIsDisabled(false);
+      setIsTimerRunning(true); 
     }
-  }, [showRecording, recordingProcessing])
+  }, [showRecording, recordingProcessing]);
+
+  useEffect(() => {
+    if (isTimerRunning && timer > 0) {
+      const interval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+
+      return () => {
+        clearInterval(interval);
+      };
+    } else if (isTimerRunning && timer <= 0) {
+      setIsDisabled(false); // Enable the button when the timer reaches 0
+      setIsTimerRunning(false); // Stop the timer
+    }
+  }, [isTimerRunning, timer]);
 
   return (
     <section className={appClasses.mainsection}>
-        <Container className={classes.container}>
-            <Col xs={7} className={classes.heading}>
-              <h1 className={classes.bigtext}>Play a trap song</h1>
-            </Col>
-            <Col>
-            <button onClick={() => {setShowResults(false); toggleShowRecording(true)}} disabled={isDisabled} className={`${classes.circularbutton} ${classes.circularbutton}`}>
-              <div className={classes.micboundary}>
-              <FontAwesomeIcon icon={faMicrophone} className={classes.icon} size="10x" style={{ color: 'rgb(255, 0, 0)' }} />
-              </div>
-            </button>
-            </Col>
-            <Col>
-              {showRecording && <RecordingPanel recProcessing={toggleRecProcessing} showRecording={toggleShowRecording}/>}
-              {(!showRecording) && (recordingProcessing || showResults) && <RecordingProcessing recProcessing={toggleRecProcessing} setShowResults={setShowResults} fetched={showResults}/>}
-            </Col>  
-        </Container>
+      <Container className={classes.container}>
+        <Col xs={7} className={classes.heading}>
+          <h1 className={classes.bigtext}>Play a trap song</h1>
+        </Col>
+        <Col>
+          <button
+            onClick={() => {
+              setShowResults(false);
+              setShowRecording(true);
+            }}
+            disabled={isDisabled}
+            className={`${classes.circularbutton} ${classes.circularbutton}`}
+          >
+            <div className={classes.micboundary}>
+              <FontAwesomeIcon
+                icon={faMicrophone}
+                className={classes.icon}
+                size="10x"
+                style={{ color: 'rgb(255, 0, 0)' }}
+              />
+            </div>
+          </button>
+        </Col>
+        <Col>
+          {showRecording && <RecordingPanel recProcessing={setRecordingProcessing} showRecording={setShowRecording} />}
+          {!showRecording && (recordingProcessing || showResults) && (
+            <RecordingProcessing recProcessing={setRecordingProcessing} setShowResults={setShowResults} fetched={showResults} />
+          )}
+        </Col>
+      </Container>
     </section>
-  )
+  );
 }
 
 function RecordingProcessing({recProcessing, setShowResults, fetched}) {
