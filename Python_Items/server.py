@@ -13,21 +13,17 @@ CORS(app)  # Enable CORS
 
 @app.route('/save_audio', methods=['POST'])
 def save_audio():
-    print("INSIDE THE SAVE AUDIO ROUTEeeeeeee")
-    audio_file = request.files.get('audio') #does not get printed
+    audio_file = request.files.get('audio')
     if audio_file:
         file_name = TEMP_FILE
         file_path = os.path.join(os.path.dirname(__file__), 'prediction_processing', file_name)
         audio_file.save(file_path)
-        print(f"LETS GO: {file_path}")
         return f'Audio saved successfully, file path {file_path}'
-    print("No audio data received")
     return 'No audio data received'
 
 
 @app.route('/get_results', methods=['GET'])
 def get_results():
-    print('INSIDE THE FETCH RESULTS ROUTEeeeeeeee') # does not get printed
     try:
         result = subprocess.run(['python3', os.path.join(os.path.dirname(__file__), "prediction_from_rec.py")], capture_output=True, text=True)
         # os.remove(os.path.join(os.path.dirname(__file__), 'prediction_processing', TEMP_FILE))

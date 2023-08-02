@@ -23,17 +23,12 @@ function MainSection() {
   }
 
   useEffect(() => {
-    console.log('RE-RENDERING POTENT')
     if (showRecording || recordingProcessing) {
       setIsDisabled(true);
     } else {
       setIsDisabled(false);
     }
   }, [showRecording, recordingProcessing])
-
-  useEffect(() => {
-    console.log('PARENT COMP LOADED')
-  }, [])
 
   return (
     <section className={appClasses.mainsection}>
@@ -94,11 +89,6 @@ function RecordingProcessing({recProcessing, setShowResults, fetched}) {
           }
         }
       }
-      // console.log(`tempo: ${tempoSmall}`);
-      // console.log(`feel: ${feelSmall}`);
-      // console.log(`key: ${keySmall}`);
-      // console.log(`mode: ${modeSmall}`)
-      // console.log(`messages: ${messagesSmall}`)
       if (localStorage.getItem('tempo') && localStorage.getItem('feel') && localStorage.getItem('key') && localStorage.getItem('mode') && localStorage.getItem('messages')) {
         if (!(JSON.parse(localStorage.getItem('tempo')) === tempoSmall && JSON.parse(localStorage.getItem('feel')) === feelSmall && JSON.parse(localStorage.getItem('key')) === keySmall && JSON.parse(localStorage.getItem('mode')) === modeSmall)) {
           setTempo(tempoSmall);
@@ -134,17 +124,13 @@ function RecordingProcessing({recProcessing, setShowResults, fetched}) {
   }
 
   useEffect(() => {
-    // console.log('THIS COMPONENT IS LOADED')
     if (!fetched && tempo === "") {
-      console.log('SUPPOSED TO FETCH (INSIDE REACT APP)')
       fetch("/get_results").then(
         res => res.json()
       ).then(
         newData => {
-          console.log('FETCHED INSIDE REACT APP')
           setData(newData)
           parseResults(newData.stdout)
-          console.log(`the data: ${newData.stdout}`)
           setShowResults(true);
           recProcessing(false);
         }
