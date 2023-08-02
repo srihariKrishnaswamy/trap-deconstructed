@@ -45,7 +45,7 @@ function MainSection() {
             </Col>
             <Col>
               {showRecording && <RecordingPanel recProcessing={toggleRecProcessing} showRecording={toggleShowRecording}/>}
-              {(recordingProcessing || showResults) && <RecordingProcessing recProcessing={toggleRecProcessing} setShowResults={setShowResults} fetched={showResults}/>}
+              {(!showRecording) && (recordingProcessing || showResults) && <RecordingProcessing recProcessing={toggleRecProcessing} setShowResults={setShowResults} fetched={showResults}/>}
             </Col>  
         </Container>
     </section>
