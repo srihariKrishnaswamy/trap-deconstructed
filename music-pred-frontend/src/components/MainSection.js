@@ -14,8 +14,6 @@ function MainSection() {
   const [recordingProcessing, setRecordingProcessing] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  const [loaded, setLoaded] = useState(false);
-
   const toggleShowRecording = (boolVal) => {
     setShowRecording(boolVal);
   };
@@ -24,17 +22,18 @@ function MainSection() {
     setRecordingProcessing(boolVal);
   }
 
-  useEffect(() => { 
-    if (!loaded) {
-      console.log('PARENT COMP LOADED')
-      setLoaded(true);
-    }
+  useEffect(() => {
+    console.log('RE-RENDERING POTENT')
     if (showRecording || recordingProcessing) {
       setIsDisabled(true);
     } else {
       setIsDisabled(false);
     }
   }, [showRecording, recordingProcessing])
+
+  useEffect(() => {
+    console.log('PARENT COMP LOADED')
+  }, [])
 
   return (
     <section className={appClasses.mainsection}>
@@ -95,22 +94,48 @@ function RecordingProcessing({recProcessing, setShowResults, fetched}) {
           }
         }
       }
-      console.log(`tempo: ${tempoSmall}`);
-      console.log(`feel: ${feelSmall}`);
-      console.log(`key: ${keySmall}`);
-      console.log(`mode: ${modeSmall}`)
-      console.log(`messages: ${messagesSmall}`)
-      setTempo(tempoSmall);
-      setFeel(feelSmall);
-      setKey(keySmall);
-      setMode(modeSmall);
-      setMessages(messagesSmall);
+      // console.log(`tempo: ${tempoSmall}`);
+      // console.log(`feel: ${feelSmall}`);
+      // console.log(`key: ${keySmall}`);
+      // console.log(`mode: ${modeSmall}`)
+      // console.log(`messages: ${messagesSmall}`)
+      if (localStorage.getItem('tempo') && localStorage.getItem('feel') && localStorage.getItem('key') && localStorage.getItem('mode') && localStorage.getItem('messages')) {
+        if (!(JSON.parse(localStorage.getItem('tempo')) === tempoSmall && JSON.parse(localStorage.getItem('feel')) === feelSmall && JSON.parse(localStorage.getItem('key')) === keySmall && JSON.parse(localStorage.getItem('mode')) === modeSmall)) {
+          setTempo(tempoSmall);
+          setFeel(feelSmall);
+          setKey(keySmall);
+          setMode(modeSmall);
+          setMessages(messagesSmall);
+          localStorage.setItem('tempo', JSON.stringify(tempoSmall));
+          localStorage.setItem('feel', JSON.stringify(feelSmall));
+          localStorage.setItem('key', JSON.stringify(keySmall));
+          localStorage.setItem('mode', JSON.stringify(modeSmall));
+          localStorage.setItem('messages', JSON.stringify(messagesSmall));
+        } else {
+          setTempo(tempoSmall);
+          setFeel(feelSmall);
+          setKey(keySmall);
+          setMode(modeSmall);
+          setMessages(JSON.parse(localStorage.getItem('messages')));
+        }
+      } else {
+        setTempo(tempoSmall);
+        setFeel(feelSmall);
+        setKey(keySmall);
+        setMode(modeSmall);
+        setMessages(messagesSmall);
+        localStorage.setItem('tempo', JSON.stringify(tempoSmall));
+        localStorage.setItem('feel', JSON.stringify(feelSmall));
+        localStorage.setItem('key', JSON.stringify(keySmall));
+        localStorage.setItem('mode', JSON.stringify(modeSmall));
+        localStorage.setItem('messages', JSON.stringify(messagesSmall));
+      }
     }
   }
 
   useEffect(() => {
     // console.log('THIS COMPONENT IS LOADED')
-    if (!fetched) {
+    if (!fetched && tempo === "") {
       console.log('SUPPOSED TO FETCH (INSIDE REACT APP)')
       fetch("/get_results").then(
         res => res.json()
