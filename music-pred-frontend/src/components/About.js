@@ -31,14 +31,14 @@ function About() {
             Before I could start building models, I had to assemble a preliminary dataset. So, I set to work, labeling 200 of my favorite songs (and passing them through a script that randomly sliced them to 10x the samples) for their keys, modes and the feel of each song. I then built a CNN for the prediction of each of the 3 labels. After a couple weeks of iteration, changes to models' architectures and more and more data collection, I decided to hook the models' results up to the openai API. Soon after, I felt in a good enough spot to move on to front end work.
         </p>
         <p className={classes.text}>
-            During 4th of July weekend, I wrote out the front end of the app and the flask server. After hooking everything up, the inital rendition of 'Trap Deconstructed' was complete!
+            During 4th of July weekend, I wrote out the front end of the app and the flask server. After hooking everything up, the inital rendition of 'Trap Deconstructed' was complete, and from there it's just been more fine tuning.
         </p>
-        <p className={classes.text}>
+        {/* <p className={classes.text}>
             Iteration is still happening on the models. I want to get them to predict as accuractely as possible, and unfortunatley, training them on increasingly large dataset takes a lot of time. But, in the near future, I aim to fully close the door on this project!
         </p>
         <p className={classes.text}>
             As far as model stats, the key model predicts at about a 30% test accuracy, the mode model at 85%, and the feel model at 80%. There is improvement to be made, and I am still experimenting with different architectures and growing my dataset.
-        </p>
+        </p> */}
     </section>
 
   )
