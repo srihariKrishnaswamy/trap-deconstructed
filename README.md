@@ -12,6 +12,10 @@ To start, a script records audio for 10 seconds within the frontend react app. T
 
 All of these predictions and steps to create a similar sound are then passed back up to the react app, where the user learns about the song and can instantly get to work!
 
+## Demo
+
+A demo video with the entire project can be found here: https://drive.google.com/file/d/12epp-WdPMGgAyuoj3aQdmHvYiNoIowQ5/view?usp=sharing
+
 ## The Development Process
 
 Before I could start building models, I had to assemble a preliminary dataset. So, I set to work, labeling 200 of my favorite songs (and passing them through a script that randomly sliced them to 10x the samples) for their keys, modes and the feel of each song. I then built a CNN for the prediction of each of the 3 labels. After a couple weeks of iteration, changes to models' architectures and more and more data collection, I decided to hook the models' results up to the openai API. Soon after, I felt in a good enough spot to move on to front end work. 
