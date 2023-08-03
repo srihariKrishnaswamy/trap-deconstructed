@@ -42,5 +42,11 @@ def get_results():
             'exception': str(e)
         }
 
+@app.route('/health')
+def health_check():
+    # You can add any health check logic here.
+    # For a simple health check, just return a 200 OK status code.
+    return 'Healthy', 200
+
 if __name__ == '__main__':
-    app.run(host='localhost', port=3500, debug=True)
+    app.run(host='localhost', port=3500)
