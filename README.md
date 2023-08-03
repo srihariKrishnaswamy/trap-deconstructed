@@ -18,10 +18,8 @@ Before I could start building models, I had to assemble a preliminary dataset. S
 
 During 4th of July weekend, I wrote out the front end of the app and the flask server. After hooking everything up, the inital rendition of 'Trap Deconstructed' was complete!
 
-Iteration is still happening on the models. I want to get them to predict as accuractely as possible, and unfortunatley, training them on increasingly large dataset takes a lot of time. But, in the near future, I aim to fully close the door on this project!
+I also dockerized the project in order to learn docker and allow it to run on any environment. Containers are available here:
 
-As far as model stats, the key model predicts at about a 30% test accuracy, the mode model at 85%, and the feel model at 80%. There is improvement to be made, and I am still experimenting with different architectures and growing my dataset.
+https://hub.docker.com/repository/docker/sriharik844/trap-deconstructed-frontend-final/general
 
-## Getting Started
-
-This app will be deployed to the web in the near future!
+https://hub.docker.com/repository/docker/sriharik844/trap-deconstructed-flaskserver-final/general
