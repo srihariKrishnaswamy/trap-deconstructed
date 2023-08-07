@@ -4,7 +4,6 @@ This app uses PyTorch (for model building, training and evaluation), Python (for
 
 Simply press record, play whatever song or sample you want to analyze over a 10 second period, and watch as the Neural Networks & Transformers work their magic!
 
-<img width="718" alt="image" src="https://github.com/srihariKrishnaswamy/trap-deconstructed/assets/86600946/d2460518-6bb3-41da-95da-de6a4babdfe4">
 
 <img width="718" alt="image" src="https://github.com/srihariKrishnaswamy/trap-deconstructed/assets/86600946/bb09e054-e44a-462a-8153-29e3697dee83">
 
