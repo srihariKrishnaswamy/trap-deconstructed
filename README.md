@@ -4,6 +4,9 @@ This app uses PyTorch (for model building, training and evaluation), Python (for
 
 Simply press record, play whatever song or sample you want to analyze over a 10 second period, and watch as the Neural Networks & Transformers work their magic!
 
+<img width="718" alt="image" src="https://github.com/srihariKrishnaswamy/trap-deconstructed/assets/86600946/bb09e054-e44a-462a-8153-29e3697dee83">
+
+
 ## How Does it Work
 To start, a script records audio for 10 seconds within the frontend react app. This audio gets passed through a Flask server & saved to a .wav file. Then, a python script gets fired up from within the server that does a few things:
 1. Deep Convolutional Neural Networks take the audio file and predict the samples key, mode and feel.
