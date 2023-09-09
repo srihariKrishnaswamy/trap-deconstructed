@@ -4,6 +4,10 @@ This app uses PyTorch (for model building, training and evaluation), Python (for
 
 Simply press record, play whatever song or sample you want to analyze over a 10 second period, and watch as the Neural Networks & Transformers work their magic!
 
+
+<img width="718" alt="image" src="https://github.com/srihariKrishnaswamy/trap-deconstructed/assets/86600946/bb09e054-e44a-462a-8153-29e3697dee83">
+
+
 ## How Does it Work
 To start, a script records audio for 10 seconds within the frontend react app. This audio gets passed through a Flask server & saved to a .wav file. Then, a python script gets fired up from within the server that does a few things:
 1. Deep Convolutional Neural Networks take the audio file and predict the samples key, mode and feel.
@@ -11,6 +15,10 @@ To start, a script records audio for 10 seconds within the frontend react app. T
 3. All these labels then get piped into Chat-GPT using the OpenAI API. Chat-GPT's response to create a similar sound is recorded.
 
 All of these predictions and steps to create a similar sound are then passed back up to the react app, where the user learns about the song and can instantly get to work!
+
+## Demo
+
+A demo video with the entire project can be found here: https://drive.google.com/file/d/12epp-WdPMGgAyuoj3aQdmHvYiNoIowQ5/view?usp=sharing
 
 ## The Development Process
 
