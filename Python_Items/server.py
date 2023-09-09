@@ -9,7 +9,7 @@ import logging
 TEMP_FILE = "react_rec.wav"
 app = Flask(__name__)
 app.logger.setLevel(logging.DEBUG)
-CORS(app)  # Enable CORS
+CORS(app) 
 
 @app.route('/save_audio', methods=['POST'])
 def save_audio():
@@ -44,8 +44,6 @@ def get_results():
 
 @app.route('/health')
 def health_check():
-    # You can add any health check logic here.
-    # For a simple health check, just return a 200 OK status code.
     return 'Healthy', 200
 
 if __name__ == '__main__':
